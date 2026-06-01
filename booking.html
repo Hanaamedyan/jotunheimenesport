@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking — Jotunheimen Social Bar</title>
+  <link rel="stylesheet" href="./style.css"/>
+  <style>
+    .btabs { display:flex;gap:2px;margin-bottom:0; }
+    .btab { flex:1;font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:16px 12px;cursor:none;border:1px solid var(--border);background:var(--navy-2);color:var(--gray-lt);transition:all .2s;border-bottom:none;text-align:center; }
+    .btab.active { background:var(--navy-3);color:white;border-color:var(--border); }
+    .btab:hover:not(.active) { background:var(--navy-3);color:var(--gray-xl); }
+    .btab-icon { display:block;font-size:20px;margin-bottom:4px; }
+    .bpanel { display:none;background:var(--navy-2);border:1px solid var(--border);padding:36px; }
+    .bpanel.active { display:block; }
+    .bpanel h3 { font-family:'Rajdhani',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:1px;color:white;margin-bottom:8px; }
+    .bpanel-desc { font-size:14px;color:var(--gray-lt);margin-bottom:24px;line-height:1.7; }
+    @media (max-width:600px) { .btabs { flex-direction:column; } .btab { border-bottom:1px solid var(--border); } .btab.active { border-bottom:none; } }
+  </style>
+</head>
+<body>
+<div id="cur"></div><div id="cur-ring"></div>
+<button id="btt" aria-label="Til toppen"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg></button>
+<nav id="nav">
+  <a href="./index.html" class="nav-logo"><div class="nav-logo-mark"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><span class="nav-logo-text">Jotunheimen <span>Social Bar</span></span></a>
+  <ul class="nav-links">
+    <li><a href="./gaming.html">Gaming</a></li><li><a href="./social-games.html">Bar Games</a></li><li><a href="./events.html">Events</a></li><li><a href="./manedskort.html">Månedskort</a></li><li><a href="./bursdag.html">Bursdag</a></li><li><a href="./bedrift.html">Bedrift</a></li><li><a href="./om-oss.html">Om oss</a></li><li><a href="./booking.html" class="nav-cta active">Book nå</a></li>
+  </ul>
+  <button class="burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-nav" id="mob-nav"><a href="./gaming.html" class="mob-l">Gaming</a><a href="./social-games.html" class="mob-l">Bar Games</a><a href="./events.html" class="mob-l">Events</a><a href="./manedskort.html" class="mob-l">Månedskort</a><a href="./bursdag.html" class="mob-l">Bursdag</a><a href="./bedrift.html" class="mob-l">Bedrift</a><a href="./om-oss.html" class="mob-l">Om oss</a><a href="./booking.html" class="mob-l" style="color:var(--neon)">Book nå</a></div>
+
+<div class="page-hero"><div class="page-hero-inner">
+  <div class="page-breadcrumb"><a href="./index.html">Hjem</a><span>›</span>Booking</div>
+  <h1 class="page-title">Book din <span class="neon">opplevelse</span></h1>
+  <p class="page-subtitle">Velg hva du vil booke — aktivitet, bursdag eller bedriftsarrangement. Vi bekrefter snarest mulig.</p>
+</div></div>
+
+<section class="section section-dark">
+  <div class="section-inner" style="max-width:960px">
+    <div class="btabs">
+      <button class="btab active" data-tab="akt"><span class="btab-icon">🎮</span>Aktivitet</button>
+      <button class="btab" data-tab="bur"><span class="btab-icon">🎂</span>Bursdag</button>
+      <button class="btab" data-tab="bed"><span class="btab-icon">💼</span>Kurs &amp; Konferanse</button>
+    </div>
+
+    <!-- AKTIVITET -->
+    <div class="bpanel active" id="panel-akt">
+      <h3>Aktivitetsbooking</h3>
+      <p class="bpanel-desc">Book gaming, shuffleboard, biljard eller annen aktivitet. Vi bekrefter innen kort tid.</p>
+      <form class="booking-form" data-form="akt">
+        <div class="form-row">
+          <div class="form-group"><label>Velg aktivitet *</label><select required><option value="">Velg aktivitet...</option><option>PC Gaming</option><option>Shuffleboard</option><option>Biljard</option><option>Sjakk</option><option>Sjoelbak / Foosball</option><option>Kombipakke</option></select></div>
+          <div class="form-group"><label>Antall gjester *</label><select required><option value="">Velg antall...</option><option>1–2 personer</option><option>3–5 personer</option><option>6–10 personer</option><option>11–20 personer</option><option>21+ personer</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Dato *</label><input type="date" required/></div>
+          <div class="form-group"><label>Ønsket tidspunkt</label><select><option value="">Velg tid...</option><option>16:30</option><option>17:00</option><option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Navn *</label><input type="text" required placeholder="Ditt navn"/></div>
+          <div class="form-group"><label>E-post *</label><input type="email" required placeholder="din@epost.no"/></div>
+        </div>
+        <div class="form-group"><label>Tilleggsinfo</label><textarea placeholder="Spesielle ønsker eller spørsmål?"></textarea></div>
+        <button type="submit" class="form-submit" id="sub-akt"><svg style="width:14px;height:14px" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>Send bookingforespørsel</button>
+        <div class="form-success" id="suc-akt">Takk! Vi bekrefter bookingen din så snart som mulig på oppgitt e-post.</div>
+      </form>
+    </div>
+
+    <!-- BURSDAG -->
+    <div class="bpanel" id="panel-bur">
+      <h3>Gamingbursdag</h3>
+      <p class="bpanel-desc">Velg pakke, antall gjester og dato. Depositum 200 kr betales ved bekreftelse. Tid: 16:30–22:00.</p>
+      <form class="booking-form" data-form="bur">
+        <div class="form-group">
+          <label>Velg bursdagspakke *</label>
+          <div class="pkg-selector">
+            <label class="pkg-option selected"><input type="radio" name="pakke" value="respawn" checked/><div class="pkg-name">Respawn Party Pack</div><div class="pkg-price-tag">269 kr/p</div></label>
+            <label class="pkg-option"><input type="radio" name="pakke" value="powerup"/><div class="pkg-name">Power-Up Pack</div><div class="pkg-price-tag">320 kr/p</div><div class="pkg-label">Pizza Party</div></label>
+            <label class="pkg-option"><input type="radio" name="pakke" value="bosslevel"/><div class="pkg-name">Boss Level</div><div class="pkg-price-tag">340 kr/p</div><div class="pkg-label">Burger Feast</div></label>
+          </div>
+          <p class="form-note">Depositum 200 kr · Mandag stengt · Tid: 16:30–22:00</p>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Antall gjester *</label><select required><option value="">Velg antall...</option><option>5–10 barn</option><option>11–15 barn</option><option>16–20 barn</option><option>20+ barn</option></select></div>
+          <div class="form-group"><label>Dato *</label><input type="date" required/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Kontaktperson (forelder) *</label><input type="text" required placeholder="Navn"/></div>
+          <div class="form-group"><label>Telefon / E-post *</label><input type="text" required placeholder="+47 000 00 000 / epost"/></div>
+        </div>
+        <div class="form-group"><label>Kommentar</label><textarea placeholder="Alder på jubilant, allergier, spesielle ønsker..."></textarea></div>
+        <button type="submit" class="form-submit" id="sub-bur"><svg style="width:14px;height:14px" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>Book gamingbursdag</button>
+        <div class="form-success" id="suc-bur">Takk for bestillingen! Vi sender bekreftelse og depositumlink til deg snart.</div>
+      </form>
+    </div>
+
+    <!-- BEDRIFT/KONFERANSE -->
+    <div class="bpanel" id="panel-bed">
+      <h3>Kurs &amp; Konferanse</h3>
+      <p class="bpanel-desc">Takk for at dere vil sende en bookingforespørsel. Med utgangspunkt i ønsker om antall gjester, dato, tid og aktivitet gjør vi vårt beste for å tilby plass og kommer tilbake så snart som mulig.</p>
+      <form class="booking-form" data-form="bed">
+        <div class="form-row">
+          <div class="form-group"><label>Antall gjester *</label><select required><option value="">Velg antall...</option><option>1–10 personer</option><option>11–20 personer</option><option>21–40 personer</option><option>41–70 personer</option><option>70+ personer</option></select></div>
+          <div class="form-group"><label>Type arrangement</label><select><option value="">Velg type...</option><option>Teambuilding</option><option>Konferanse / Møte</option><option>AfterWork</option><option>Bedriftsevent</option><option>Kurs</option><option>Annet</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Dato *</label><input type="date" required/></div>
+          <div class="form-group"><label>Ønsket starttid *</label><select required><option value="">Velg tid...</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>16:30</option><option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Bedrift / Kontaktperson *</label><input type="text" required placeholder="Bedriftsnavn og kontaktnavn"/></div>
+          <div class="form-group"><label>E-post *</label><input type="email" required placeholder="booking@bedrift.no"/></div>
+        </div>
+        <div class="form-group"><label>Beskrivelse og ønsker</label><textarea placeholder="Fortell oss om arrangementet, ønsker om aktiviteter, catering, teknisk utstyr etc."></textarea></div>
+        <button type="submit" class="form-submit" id="sub-bed"><svg style="width:14px;height:14px" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>Send forespørsel</button>
+        <div class="form-success" id="suc-bed">Takk for forespørselen! Vi kommer tilbake med svar så snart som mulig.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section-mid" style="padding:40px 48px">
+  <div class="section-inner">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+      <div><div class="s-eye">Direkte kontakt</div><p style="font-size:14px;color:var(--dim)">Foretrekker du å ringe eller sende e-post?</p></div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="tel:+4748481645" class="btn-neon">📞 +47 484 81 645</a>
+        <a href="mailto:booking@jotunheimenesport.no" class="btn-ghost">📧 booking@jotunheimenesport.no</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="fb"><a href="./index.html" class="nav-logo"><div class="nav-logo-mark"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><span class="nav-logo-text">Jotunheimen <span>Social Bar</span></span></a><p>Book gaming, bursdag eller bedriftsarrangement. Kjøpmannsgata 63, Trondheim.</p></div>
+    <div class="fc"><h5>Navigasjon</h5><ul><li><a href="./index.html">Forside</a></li><li><a href="./gaming.html">Gaming</a></li><li><a href="./bursdag.html">Bursdag</a></li><li><a href="./bedrift.html">Bedrift</a></li></ul></div>
+    <div class="fc"><h5>Kontakt</h5><ul><li><a href="tel:+4748481645">+47 484 81 645</a></li><li><a href="mailto:booking@jotunheimenesport.no">booking@jotunheimenesport.no</a></li></ul></div>
+    <div class="fc"><h5>Åpningstider</h5><ul><li><a href="#">Man: Stengt</a></li><li><a href="#">Tir–Tors: 16:30–22:00</a></li><li><a href="#">Fre: 16:30–01:00</a></li><li><a href="#">Lør: 14:00–01:00</a></li><li><a href="#">Søn: 14:00–21:00</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 Jotunheimen Social Bar</p><div class="fbl"><a href="#">Personvern</a></div></div>
+  <div class="yams-c"><div style="display:inline-flex;align-items:center;gap:10px;background:#0B0B0B;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:12px 22px;"><svg width="18" height="24" viewBox="0 0 34 46" fill="none"><line x1="2" y1="2" x2="17" y2="19" stroke="#FFF" stroke-width="4.5" stroke-linecap="round"/><line x1="32" y1="2" x2="17" y2="19" stroke="#FFF" stroke-width="4.5" stroke-linecap="round"/><line x1="17" y1="19" x2="17" y2="44" stroke="#FFF" stroke-width="4.5" stroke-linecap="round"/><circle cx="17" cy="19" r="4.5" fill="#C8A660"/></svg><div style="display:flex;align-items:baseline;gap:4px;line-height:1;"><span style="font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;color:#FFF;">YAMS</span><span style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,.4);">AS</span></div><span style="width:1px;height:16px;background:rgba(255,255,255,.12);"></span><span style="font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.28);">Website Solutions</span></div></div>
+</footer>
+
+<script>
+// Booking tabs
+document.querySelectorAll('.btab').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.btab').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.bpanel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-'+btn.dataset.tab).classList.add('active');
+  });
+});
+// Open specific tab from URL hash
+if(location.hash==='#bursdag'){document.querySelector('[data-tab="bur"]').click();}
+if(location.hash==='#bedrift'){document.querySelector('[data-tab="bed"]').click();}
+</script>
+<script src="./shared.js"></script>
+</body>
+</html>

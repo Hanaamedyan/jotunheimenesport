@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gamingbursdag — Jotunheimen Social Bar</title>
+  <link rel="stylesheet" href="./style.css"/>
+  <style>
+    .bd-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:16px; }
+    .bd-card { background:var(--navy-3);border:1px solid var(--border);padding:36px;cursor:none;transition:border-color .25s,transform .25s;position:relative; }
+    .bd-card:hover { border-color:rgba(0,212,255,.35);transform:translateY(-3px); }
+    .bd-card.featured { border-color:var(--neon);border-width:2px; }
+    .bd-card.featured::after { content:'Mest populær';position:absolute;top:16px;right:16px;background:var(--neon);color:var(--navy);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:50px; }
+    .bd-num { font-family:'Rajdhani',sans-serif;font-size:60px;font-weight:700;color:rgba(0,212,255,.07);line-height:1;position:absolute;top:16px;right:20px; }
+    .bd-eyebrow { font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--neon);margin-bottom:8px; }
+    .bd-name { font-family:'Rajdhani',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;color:white;margin-bottom:4px; }
+    .bd-subtitle { font-size:12px;color:var(--gray-lt);margin-bottom:16px; }
+    .bd-price { font-family:'Rajdhani',sans-serif;font-size:44px;font-weight:700;color:white;line-height:1; }
+    .bd-price span { font-size:14px;font-weight:400;color:var(--gray-lt); }
+    .bd-deposit { font-size:11px;color:var(--gray-lt);margin-top:6px;margin-bottom:18px; }
+    .bd-includes { display:flex;flex-direction:column;gap:8px;margin-bottom:22px; }
+    .bd-inc { display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-xl); }
+    .bd-inc svg { width:12px;height:12px;color:var(--neon);flex-shrink:0; }
+    @media (max-width:900px) { .bd-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<div id="cur"></div><div id="cur-ring"></div>
+<button id="btt" aria-label="Til toppen"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg></button>
+<nav id="nav">
+  <a href="./index.html" class="nav-logo"><div class="nav-logo-mark"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><span class="nav-logo-text">Jotunheimen <span>Social Bar</span></span></a>
+  <ul class="nav-links">
+    <li><a href="./gaming.html">Gaming</a></li><li><a href="./social-games.html">Bar Games</a></li><li><a href="./events.html">Events</a></li><li><a href="./manedskort.html">Månedskort</a></li><li><a href="./bursdag.html" class="active">Bursdag</a></li><li><a href="./bedrift.html">Bedrift</a></li><li><a href="./om-oss.html">Om oss</a></li><li><a href="./booking.html" class="nav-cta">Book nå</a></li>
+  </ul>
+  <button class="burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-nav" id="mob-nav"><a href="./gaming.html" class="mob-l">Gaming</a><a href="./social-games.html" class="mob-l">Bar Games</a><a href="./events.html" class="mob-l">Events</a><a href="./manedskort.html" class="mob-l">Månedskort</a><a href="./bursdag.html" class="mob-l">Bursdag</a><a href="./bedrift.html" class="mob-l">Bedrift</a><a href="./om-oss.html" class="mob-l">Om oss</a><a href="./booking.html" class="mob-l" style="color:var(--neon)">Book nå</a></div>
+
+<div class="page-hero"><div class="page-hero-inner">
+  <div class="page-breadcrumb"><a href="./index.html">Hjem</a><span>›</span>Gamingbursdag</div>
+  <h1 class="page-title">Gaming<span class="neon">bursdag</span></h1>
+  <p class="page-subtitle">En bursdag de aldri glemmer! Tre pakker å velge mellom — fra 16:30 til 22:00. Depositum 200 kr ved bestilling.</p>
+</div></div>
+
+<section class="section section-dark">
+  <div class="section-inner">
+    <div class="section-header"><div class="s-eye reveal">Velg din pakke</div><h2 class="s-title reveal d1">Tre pakker — én <span class="neon">episk kveld</span></h2></div>
+    <div class="bd-grid">
+      <div class="bd-card reveal">
+        <div class="bd-num">01</div>
+        <div class="bd-eyebrow">Pakke 1</div>
+        <div class="bd-name">Respawn Party Pack</div>
+        <div class="bd-subtitle">Den klassiske gaming-bursdagen</div>
+        <div class="bd-price">269<span> kr/person</span></div>
+        <div class="bd-deposit">Depositum 200 kr · Tid: 16:30–22:00</div>
+        <div class="bd-includes">
+          <div class="bd-inc"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Gaming på toppspesifiserte PCer</div>
+          <div class="bd-inc"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Eget avsperret område</div>
+          <div class="bd-inc"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Dedikert vert hele kvelden</div>
+          <div class="bd-inc"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Ubegrenset gaming 16:30–22:00</div>
+        </div>
+        <a href="./booking.html" class="btn-neon" style="display:block;text-align:center">Bestill denne pakken</a>
+      </div>
+      <div class="bd-card featured reveal d1">
+        <div class="bd-num">02</div>
+        <div class="bd-eyebrow">Pakke 2</div>
+        <div class="bd-name">Power-Up Pack</div>
+        <div class="bd-subtitle">Pizza Party 🍕</div>
+        <div class="bd-price">320<span> kr/person</span></div>
+        <div class="bd-deposit">Depositum 200 kr · Tid: 16:30–22:00</div>
+        <div class="bd-includes">
+          <div class="bd-inc"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Alt fra Respawn Party Pack</div>
+          <div class="bd-inc"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Pizza inkludert i pakken</div>
+          <div class="bd-inc"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Bursdagsdekorasjon</div>
+          <div class="bd-inc"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Personlig tilrettelegging</div>
+        </div>
+        <a href="./booking.html" class="btn-neon" style="display:block;text-align:center">Bestill denne pakken</a>
+      </div>
+      <div class="bd-card reveal d2">
+        <div class="bd-num">03</div>
+        <div class="bd-eyebrow">Pakke 3</div>
+        <div class="bd-name">Boss Level</div>
+        <div class="bd-subtitle">Burger Feast 🍔</div>
+        <div class="bd-price">340<span> kr/person</span></div>
+        <div class="bd-deposit">Depositum 200 kr · Tid: 16:30–22:00</div>
+        <div class="bd-includes">
+          <div class="bd-inc"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Alt fra Power-Up Pack</div>
+          <div class="bd-inc"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Burger-feast inkludert</div>
+          <div class="bd-inc"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Premium bursdagspakke</div>
+          <div class="bd-inc"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Det ultimate gaming-partyet</div>
+        </div>
+        <a href="./booking.html" class="btn-neon" style="display:block;text-align:center">Bestill denne pakken</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-mid">
+  <div class="section-inner" style="max-width:720px">
+    <div class="s-eye reveal">Praktisk info</div>
+    <h2 class="s-title reveal d1" style="margin-bottom:28px">Alt du trenger å <span class="neon">vite</span></h2>
+    <div class="spec-table reveal d2">
+      <div class="spec-row"><span class="spec-k">Tidspunkt</span><span class="spec-v">16:30–22:00 (mandag stengt)</span></div>
+      <div class="spec-row"><span class="spec-k">Depositum</span><span class="spec-v">200 kr ved bestilling</span></div>
+      <div class="spec-row"><span class="spec-k">Aldersgrense</span><span class="spec-v">Ingen — for barn og unge</span></div>
+      <div class="spec-row"><span class="spec-k">Kontakt</span><span class="spec-v">booking@jotunheimenesport.no</span></div>
+    </div>
+    <div style="margin-top:28px" class="reveal d3">
+      <a href="./booking.html" class="btn-neon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>Book bursdag nå</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="fb"><a href="./index.html" class="nav-logo"><div class="nav-logo-mark"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><span class="nav-logo-text">Jotunheimen <span>Social Bar</span></span></a><p>Gamingbursdag fra 269 kr/person. Tre pakker å velge mellom. Kjøpmannsgata 63, Trondheim.</p></div>
+    <div class="fc"><h5>Navigasjon</h5><ul><li><a href="./index.html">Forside</a></li><li><a href="./gaming.html">Gaming</a></li><li><a href="./events.html">Events</a></li><li><a href="./booking.html">Book nå</a></li></ul></div>
+    <div class="fc"><h5>Kontakt</h5><ul><li><a href="tel:+4748481645">+47 484 81 645</a></li><li><a href="mailto:booking@jotunheimenesport.no">booking@jotunheimenesport.no</a></li></ul></div>
+    <div class="fc"><h5>Åpningstider</h5><ul><li><a href="#">Bursdag: 16:30–22:00</a></li><li><a href="#">Tir–Tors tilgjengelig</a></li><li><a href="#">Fre–Lør tilgjengelig</a></li><li><a href="#">Søn tilgjengelig</a></li><li><a href="#">Man: Stengt</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 Jotunheimen Social Bar</p><div class="fbl"><a href="#">Personvern</a></div></div>
+  <div class="yams-c"><div style="display:inline-flex;align-items:center;gap:10px;background:#0B0B0B;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:12px 22px;"><svg width="18" height="24" viewBox="0 0 34 46" fill="none"><line x1="2" y1="2" x2="17" y2="19" stroke="#FFF" stroke-width="4.5" stroke-linecap="round"/><line x1="32" y1="2" x2="17" y2="19" stroke="#FFF" stroke-width="4.5" stroke-linecap="round"/><line x1="17" y1="19" x2="17" y2="44" stroke="#FFF" stroke-width="4.5" stroke-linecap="round"/><circle cx="17" cy="19" r="4.5" fill="#C8A660"/></svg><div style="display:flex;align-items:baseline;gap:4px;line-height:1;"><span style="font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;color:#FFF;">YAMS</span><span style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,.4);">AS</span></div><span style="width:1px;height:16px;background:rgba(255,255,255,.12);"></span><span style="font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.28);">Website Solutions</span></div></div>
+</footer>
+<script src="./shared.js"></script>
+</body>
+</html>

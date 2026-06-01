@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Events — Jotunheimen Social Bar</title>
+  <link rel="stylesheet" href="./style.css"/>
+  <style>
+    .events-grid { display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px; }
+    .event-card { background:var(--navy-3);border:1px solid var(--border);overflow:hidden;cursor:none;transition:border-color .25s,transform .25s; }
+    .event-card:hover { border-color:rgba(0,212,255,.35);transform:translateY(-3px); }
+    .event-img { height:160px;overflow:hidden; }
+    .event-img img { width:100%;height:100%;object-fit:cover;filter:saturate(.7);transition:filter .4s,transform .5s; }
+    .event-card:hover .event-img img { filter:saturate(1.05);transform:scale(1.04); }
+    .event-body { padding:20px; }
+    .ev-when { font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--neon);margin-bottom:6px; }
+    .ev-name { font-family:'Rajdhani',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;color:white;margin-bottom:6px; }
+    .ev-desc { font-size:12px;color:var(--gray-lt);line-height:1.65;margin-bottom:12px; }
+    .ev-price { font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;color:var(--ice); }
+    .ev-featured { grid-column:span 3;background:var(--neon-dim);border-color:var(--neon); }
+    @media (max-width:900px) { .events-grid { grid-template-columns:1fr; } .ev-featured { grid-column:span 1; } }
+  </style>
+</head>
+<body>
+<div id="cur"></div><div id="cur-ring"></div>
+<button id="btt" aria-label="Til toppen"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg></button>
+<nav id="nav">
+  <a href="./index.html" class="nav-logo"><div class="nav-logo-mark"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><span class="nav-logo-text">Jotunheimen <span>Social Bar</span></span></a>
+  <ul class="nav-links">
+    <li><a href="./gaming.html">Gaming</a></li><li><a href="./social-games.html">Bar Games</a></li><li><a href="./events.html" class="active">Events</a></li><li><a href="./manedskort.html">Månedskort</a></li><li><a href="./bursdag.html">Bursdag</a></li><li><a href="./bedrift.html">Bedrift</a></li><li><a href="./om-oss.html">Om oss</a></li><li><a href="./booking.html" class="nav-cta">Book nå</a></li>
+  </ul>
+  <button class="burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-nav" id="mob-nav"><a href="./gaming.html" class="mob-l">Gaming</a><a href="./social-games.html" class="mob-l">Bar Games</a><a href="./events.html" class="mob-l">Events</a><a href="./manedskort.html" class="mob-l">Månedskort</a><a href="./bursdag.html" class="mob-l">Bursdag</a><a href="./bedrift.html" class="mob-l">Bedrift</a><a href="./om-oss.html" class="mob-l">Om oss</a><a href="./booking.html" class="mob-l" style="color:var(--neon)">Book nå</a></div>
+
+<div class="page-hero"><div class="page-hero-inner">
+  <div class="page-breadcrumb"><a href="./index.html">Hjem</a><span>›</span>Events</div>
+  <h1 class="page-title">Events &amp; <span class="neon">Arrangementer</span></h1>
+  <p class="page-subtitle">Noe nytt skjer alltid på Jotunheimen. Turneringer, familiedager, studentkvelder og mer.</p>
+</div></div>
+
+<section class="section section-dark">
+  <div class="section-inner">
+    <div class="section-header-row">
+      <div><div class="s-eye reveal">Kommende &amp; faste</div><h2 class="s-title reveal d1">Alle <span class="neon">events</span></h2></div>
+    </div>
+    <div class="events-grid">
+      <div class="event-card ev-featured reveal">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+          <div class="event-img"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&q=80" alt="EAFC Turnering"/></div>
+          <div class="event-body">
+            <div class="ev-when">Lørdag 13. juni · 14:00</div>
+            <div class="ev-name" style="font-size:22px">EAFC 26 Turnering</div>
+            <div class="ev-desc">FIFA-turnering i samarbeid med Fotballfest og Red Bull! Gruppeomganger hos oss, finale på Trondheim Spektrum 16. juni. Tilfeldige lag — kom og møt nye konkurrenter!</div>
+            <div class="ev-price" style="margin-bottom:14px">100 kr · 18+ · Premie: Red Bull</div>
+            <a href="./booking.html" class="btn-neon" style="display:inline-flex">Meld deg på</a>
+          </div>
+        </div>
+      </div>
+      <div class="event-card reveal">
+        <div class="event-img"><img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=600&q=80" alt="Sunday Funday"/></div>
+        <div class="event-body">
+          <div class="ev-when">Hver søndag</div>
+          <div class="ev-name">Sunday Funday</div>
+          <div class="ev-desc">Familiesøndag på Jotunheimen! Gaming, shuffleboard og vafler. Veiledet gaming 12–14, fri drop-in 14–21. For store og små!</div>
+          <div class="ev-price">100 kr/barn · 150 kr/voksen</div>
+        </div>
+      </div>
+      <div class="event-card reveal d1">
+        <div class="event-img"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80" alt="StudentTorsdag"/></div>
+        <div class="event-body">
+          <div class="ev-when">Hver torsdag</div>
+          <div class="ev-name">StudentTorsdag</div>
+          <div class="ev-desc">Ubegrenset gaming til studentpris + rabatt på mat og drikke. Vis gyldig studiebevis og nyt kvelden!</div>
+          <div class="ev-price">239 kr ubegrenset gaming</div>
+        </div>
+      </div>
+      <div class="event-card reveal d2">
+        <div class="event-img"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&q=80" alt="Ung Gaming"/></div>
+        <div class="event-body">
+          <div class="ev-when">Mandag–Onsdag</div>
+          <div class="ev-name">Ung Gaming</div>
+          <div class="ev-desc">Gaming tilpasset spillere under 16 år. Trygt, morsomt og engasjerende med voksne tilstede. Perfekt ettermiddagsaktivitet!</div>
+          <div class="ev-price">200 kr</div>
+        </div>
+      </div>
+      <div class="event-card reveal d3">
+        <div class="event-img"><img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=600&q=80" alt="AfterWork"/></div>
+        <div class="event-body">
+          <div class="ev-when">Etter avtale</div>
+          <div class="ev-name">AfterWork</div>
+          <div class="ev-desc">Alternativ til den tradisjonelle afterwork! Mat, drikke, gaming og bar games — enkel bestillingsprosess for grupper.</div>
+          <div class="ev-price">Kontakt oss for pris</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="fb"><a href="./index.html" class="nav-logo"><div class="nav-logo-mark"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><span class="nav-logo-text">Jotunheimen <span>Social Bar</span></span></a><p>Gaming, bar games, shuffleboard og events — to etasjer med morro! Kjøpmannsgata 63, Trondheim.</p></div>
+    <div class="fc"><h5>Navigasjon</h5><ul><li><a href="./index.html">Forside</a></li><li><a href="./gaming.html">Gaming</a></li><li><a href="./social-games.html">Bar Games</a></li><li><a href="./booking.html">Book nå</a></li></ul></div>
+    <div class="fc"><h5>Kontakt</h5><ul><li><a href="tel:+4748481645">+47 484 81 645</a></li><li><a href="mailto:post@jotunheimenesport.no">post@jotunheimenesport.no</a></li></ul></div>
+    <div class="fc"><h5>Åpningstider</h5><ul><li><a href="#">Man: Stengt</a></li><li><a href="#">Tir–Tors: 16:30–22:00</a></li><li><a href="#">Fre: 16:30–01:00</a></li><li><a href="#">Lør: 14:00–01:00</a></li><li><a href="#">Søn: 14:00–21:00</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 Jotunheimen Social Bar</p><div class="fbl"><a href="#">Personvern</a></div></div>
+  <div class="yams-c"><div style="display:inline-flex;align-items:center;gap:10px;background:#0B0B0B;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:12px 22px;"><svg width="18" height="24" viewBox="0 0 34 46" fill="none"><line x1="2" y1="2" x2="17" y2="19" stroke="#FFF" stroke-width="4.5" stroke-linecap="round"/><line x1="32" y1="2" x2="17" y2="19" stroke="#FFF" stroke-width="4.5" stroke-linecap="round"/><line x1="17" y1="19" x2="17" y2="44" stroke="#FFF" stroke-width="4.5" stroke-linecap="round"/><circle cx="17" cy="19" r="4.5" fill="#C8A660"/></svg><div style="display:flex;align-items:baseline;gap:4px;line-height:1;"><span style="font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;color:#FFF;">YAMS</span><span style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,.4);">AS</span></div><span style="width:1px;height:16px;background:rgba(255,255,255,.12);"></span><span style="font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.28);">Website Solutions</span></div></div>
+</footer>
+<script src="./shared.js"></script>
+</body>
+</html>
